@@ -143,7 +143,7 @@ ts_multi <- ts(mat_with_name, start=c(2000, 1), freq=12)
 ts_multi
 #2000/2Q-2001/1Q
 window(ts_freq4, start=c(2000, 2), end=c(2001, 1))
-
+frequency(ts_freq4)
 
 # MultiVariate TS --------------------------------------------------------------------
 
@@ -212,6 +212,7 @@ ndiffs(log(Seatbelts[, "front"]))
 
 # Seatbelts ---------------------------------------------------------------
 
+#original
 front <- Seatbelts[, "front"]
 autoplot(
   front
@@ -220,22 +221,141 @@ autoplot(
   #Seatbelts[, "law"]
 )
 head(Seatbelts, n=3)
+
 #log
 log_front <- log(front)
 ggtsdisplay(log_front, main="対数系列")
 summary(ur.kpss(log_front))
 ndiffs(log_front)
+
 #diff
-front
 lag(front, -1)
 lag(front, 1)
 front - lag(front, -1)
 diff(front, lag=1)
+
 #log&diff
 log_diff <- diff(log_front)
 ggtsdisplay(log_diff, main="対数差分系列")
 ur.kpss(log_diff)
 ndiffs(log_diff)
+
 #Seasonality
 ggsubseriesplot(front)
+frequency(front)
+diff(front, lag=frequency(front))
+seas_log_diff <- diff(log_diff, lag=frequency(log_diff))
+ggtsdisplay(seas_log_diff, main="季節差分系列")
+ndiffs(seas_log_diff)
+ur.kpss(seas_log_diff)
+
+#auto correlation
+acf(seas_log_diff, plot=F, lag.max=12)
+pacf(seas_log_diff, plot=F, lag.max=12)
+autoplot(acf(seas_log_diff, plot=F, lag.max=12), main="対数系列のコレログラム")
+
+#Deta Processing
+Seatbelts_log <- Seatbelts[, c("front", "PetrolPrice", "law")]
+Seatbelts_log[, "front"] <- log(Seatbelts_log[, "front"])
+Seatbelts_log[, "PetrolPrice"] <- log(Seatbelts_log[, "PetrolPrice"])
+train <- window(Seatbelts_log, end=c(1983, 12))
+test <- window(Seatbelts_log, start=c(1984, 1))
+petro_law <- train[, c("PetrolPrice", "law")]
+
+#Forecast
+model_sarimax <- Arima(
+  y = train[, "front"],
+  order = c(1, 1, 1),
+  seasonal = list(order=c(1, 0, 0)),
+  xreg =  petro_law
+)
+model_sarimax
+
+#Model Selection
+Arima(
+  y = log_diff,
+  order = c(1, 0, 0),
+  include.mean = F
+)
+Arima(
+  y = log_front,
+  order = c(1, 1, 0),
+  include.mean = F
+)
+Arima(
+  y = seas_log_diff,
+  order = c(1, 0, 0),
+  include.mean = F
+)
+Arima(
+  y = log_front,
+  order = c(1, 1, 0),
+  seasonal = list(order=c(0, 1, 0)),
+  include.mean = F
+)
+sarimax_petro_law <- auto.arima(
+  y = train[, "front"],
+  xreg = petro_law,
+  ic = "aic",
+  max.order = 7,
+  stepwise = F,
+  approximation = F,
+  parallel = T,
+  num.cores = 4
+)
+
+sarimax_petro_law
+
+max_arimax_petro_law <- Arima(
+  y = train[, "front"],
+  xreg = petro_law,
+  order = c(2, 1, 3),
+  seasonal = list(order=c(2, 0, 0)),
+  )
+
+max_arimax_petro_law
+
+# Stationarity, AR, ABS > 1
+abs(polyroot(c(1, -coef(sarimax_petro_law)[c("ar1", "ar2")])))
+abs(polyroot(c(1, -coef(max_arimax_petro_law)[c("ar1", "ar2")])))
+abs(polyroot(c(1, -coef(max_arimax_petro_law)[c("sar1", "sar2")])))
+
+# Reversibility, MA
+abs(polyroot(c(1, coef(sarimax_petro_law)[c("ma1")])))
+abs(polyroot(c(1, coef(max_arimax_petro_law)[c("ma1", "ma2", "ma3")])))
+abs(polyroot(c(1, coef(sarimax_petro_law)[c("sma1")])))
+
+# Residudals
+checkresiduals(sarimax_petro_law)
+checkresiduals(max_arimax_petro_law)
+
+jarque.bera.test(resid(sarimax_petro_law))
+jarque.bera.test(resid(max_arimax_petro_law))
+
+# Forecast
+petro_law_test <- test[, c("PetrolPrice", "law")]
+sarimax_f <- forecast(
+  sarimax_petro_law,
+  xreg = petro_law_test,
+  h = 12,
+  level = c(95, 70)
+)
+
+sarimax_f
+autoplot(sarimax_f, predict.colour = 1, main = "ARIMAによる予測")
+
+petro_law_mean <- data.frame(
+  PetrolPrice=rep(mean(train[, "PetrolPrice"]), 12),
+  law = rep(1, 12)
+)
+
+sarimax_f_tail <- forecast(sarimax_petro_law, xreg = as.matrix(petro_law_mean))
+
+
+class(c(1, 0, 0))
+class(Seatbelts_log)
+head(Seatbelts, n=1)
+head(Seatbelts_log, n=1)
+tail(Seatbelts_log, n=1)
+autoplot(Seatbelts_log[, "law"])
 

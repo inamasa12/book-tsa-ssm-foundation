@@ -1,4 +1,6 @@
-# python answers
+# R Tips
 
-[正規表現](https://qiita.com/luohao0404/items/7135b2b96f9b0b196bf3)
-
+* 乱数シードの固定と解除  
+一旦固定すると、解除するまでは固定したシードをスタートに決まった順番に乱数が得られる
+`set.seed(X)`
+`set.seed(NULL)`

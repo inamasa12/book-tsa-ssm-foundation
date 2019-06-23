@@ -2,13 +2,9 @@
 
 # Ctrl + Shift + N: Create an New File
 # Ctrl + S: Save the file
-
 # Ctrl + Enter: run current row
-
 # Ctrl + Shift + C: Comment Out
-
 # Ctrl + Shift + R: Section
-
 # Alt + Shift + J: move cursol
 
 

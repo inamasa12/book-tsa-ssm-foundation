@@ -277,22 +277,26 @@ Arima(
   order = c(1, 0, 0),
   include.mean = F
 )
+
 Arima(
   y = log_front,
   order = c(1, 1, 0),
   include.mean = F
 )
+
 Arima(
   y = seas_log_diff,
   order = c(1, 0, 0),
   include.mean = F
 )
+
 Arima(
   y = log_front,
   order = c(1, 1, 0),
   seasonal = list(order=c(0, 1, 0)),
   include.mean = F
 )
+
 sarimax_petro_law <- auto.arima(
   y = train[, "front"],
   xreg = petro_law,
@@ -304,16 +308,12 @@ sarimax_petro_law <- auto.arima(
   num.cores = 4
 )
 
-sarimax_petro_law
-
 max_arimax_petro_law <- Arima(
   y = train[, "front"],
   xreg = petro_law,
   order = c(2, 1, 3),
   seasonal = list(order=c(2, 0, 0)),
   )
-
-max_arimax_petro_law
 
 # Stationarity, AR, ABS > 1
 abs(polyroot(c(1, -coef(sarimax_petro_law)[c("ar1", "ar2")])))
@@ -334,6 +334,7 @@ jarque.bera.test(resid(max_arimax_petro_law))
 
 # Forecast
 petro_law_test <- test[, c("PetrolPrice", "law")]
+
 sarimax_f <- forecast(
   sarimax_petro_law,
   xreg = petro_law_test,
@@ -341,21 +342,61 @@ sarimax_f <- forecast(
   level = c(95, 70)
 )
 
-sarimax_f
 autoplot(sarimax_f, predict.colour = 1, main = "ARIMAによる予測")
+
+max_arimax_f <- forecast(
+  max_arimax_petro_law,
+  xreg = petro_law_test,
+  h = 12,
+  level = c(95, 70)
+)
+
+autoplot(max_arimax_f, predict.colour = 1, main = "ARIMAによる予測")
 
 petro_law_mean <- data.frame(
   PetrolPrice=rep(mean(train[, "PetrolPrice"]), 12),
   law = rep(1, 12)
 )
 
-sarimax_f_tail <- forecast(sarimax_petro_law, xreg = as.matrix(petro_law_mean))
+sarimax_f_mean <- forecast(sarimax_petro_law, xreg = as.matrix(petro_law_mean))
 
+petro_law_tail <- data.frame(
+  PetrolPrice=rep(tail(train[, "PetrolPrice"], n=1), 12),
+  law = rep(1, 12)
+)
 
-class(c(1, 0, 0))
-class(Seatbelts_log)
-head(Seatbelts, n=1)
-head(Seatbelts_log, n=1)
-tail(Seatbelts_log, n=1)
-autoplot(Seatbelts_log[, "law"])
+sarimax_f_tail <- forecast(sarimax_petro_law, xreg = as.matrix(petro_law_tail))
 
+# Naive Forecast
+naive_f_mean <- meanf(train[, "front"], h=12)
+naive_f_latest <- rwf(train[, "front"], h=12)
+
+# Evaluation
+
+sarimax_rmse <- sqrt(
+  sum((sarimax_f$mean - test[, "front"])^2) /
+    length(sarimax_f$mean)
+)
+
+max_arimax_rmse <- sqrt(
+  sum((max_arimax_f$mean - test[, "front"])^2) /
+    length(sarimax_f$mean)
+)
+
+#RMSE: 0.0967
+accuracy(sarimax_f, x=test[, "front"])
+accuracy(sarimax_f, x=test[, "front"])["Test set", "RMSE"]
+
+#RMSE: 0.1014
+accuracy(max_arimax_f, x=test[, "front"])
+accuracy(max_arimax_f, x=test[, "front"])["Test set", "RMSE"]
+
+#RMSE: 0.0694
+accuracy(sarimax_f_mean, x=test[, "front"])["Test set", "RMSE"]
+#RMSE: 0.1018
+accuracy(sarimax_f_tail, x=test[, "front"])["Test set", "RMSE"]
+
+#RMSE: 0.3950
+accuracy(naive_f_mean, x=test[, "front"])["Test set", "RMSE"]
+#RMSE: 0.1498
+accuracy(naive_f_latest, x=test[, "front"])["Test set", "RMSE"]

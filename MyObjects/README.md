@@ -9,3 +9,14 @@
 * ts型  
 `autoplot`、`ggtsdisplay`でグラフ化する場合、データはts型である必要がある  
 
+# 統計 Tips
+* 不偏分散  
+推定値から算出した分散は偏りがあるため、固めに見積もる  
+⇒ 通常の分散より大きくなるように小さい数字で割る  
+* 標準誤差  
+推定値の不確実性の尺度  
+```math
+\left( \sum_{k=1}^n a_k b_k \right)^{!!2} \leq
+\left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
+```
+

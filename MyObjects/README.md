@@ -21,4 +21,4 @@
 ```
 <img src="https://latex.codecogs.com/gif.latex?\int_a^bf(x)dx" />
 <img src="https://latex.codecogs.com/gif.latex?\sqrt{\frac{不偏分散}{サンプルサイズ}}" />
-<a href="https://www.codecogs.com/eqnedit.php?latex=\sqrt{\frac{不偏分散}{サンプルサイズ}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sqrt{\frac{不偏分散}{サンプルサイズ}}" title="\sqrt{\frac{不偏分散}{サンプルサイズ}}" /></a>
+<a href="https://www.codecogs.com/eqnedit.php?latex=\sqrt{\frac{不偏分散}{sample size}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sqrt{\frac{不偏分散}{サンプルサイズ}}" title="\sqrt{\frac{不偏分散}{サンプルサイズ}}" /></a>

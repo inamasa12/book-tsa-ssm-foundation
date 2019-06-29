@@ -16,4 +16,8 @@
 * 標準誤差  
 推定値の不確実性の尺度、不偏分散をサンプルサイズで割ったもの（中心極限定理）  
 
-  <img src="https://latex.codecogs.com/gif.latex?\sqrt{\frac{s^{2}}{n}}" />
+  <img src="https://latex.codecogs.com/gif.latex?\sqrt{\frac{s^{2}}{n}}" />  
+* p値  
+帰無仮説の下で値がt値を超える確率  
+⇒ p値が小さいほどt値は大きい  
+⇒ p値が小さいほど有意

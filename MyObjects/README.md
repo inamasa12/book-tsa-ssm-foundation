@@ -16,4 +16,5 @@
 * 標準誤差  
 推定値の不確実性の尺度
 不偏分散をサンプルサイズで割ったもの  
+
   <img src="https://latex.codecogs.com/gif.latex?\sqrt{\frac{s^{2}}{n}}" />

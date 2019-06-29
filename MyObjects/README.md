@@ -20,7 +20,7 @@
 \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
 ```
 <img src="https://latex.codecogs.com/gif.latex?\int_a^bf(x)dx" />
-<img src="https://latex.codecogs.com/gif.latex?\sqrt{\frac{\mbox{1}}{\mbox{sample size}}}" />
+<img src="https://latex.codecogs.com/gif.latex?\sqrt{\frac{s^{2}}{n}}" />
 
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=\sqrt{\frac{不偏分散}{sample size}}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sqrt{\frac{不偏分散}{サンプルサイズ}}" title="\sqrt{\frac{不偏分散}{サンプルサイズ}}" /></a>

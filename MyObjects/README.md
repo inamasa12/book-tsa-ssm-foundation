@@ -11,6 +11,9 @@
   pch: マーカーのタイプ  
   cex.main: mainのフォント（相対倍率）  
   font.lab: labelのフォント  
+  lwd: 線幅  
+  lty: 線種  
+  
 * `legend`のパラメータ  
   bty: 文字のタイプ  
 

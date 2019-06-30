@@ -6,6 +6,13 @@
 `set.seed(NULL)`  
 * ts型  
 `autoplot`、`ggtsdisplay`でグラフ化する場合、データはts型である必要がある  
+* `plot`のパラメータ  
+  col: 色（全ポイントについて指定）  
+  pch: マーカーのタイプ  
+  cex.main: mainのフォント（相対倍率）  
+  font.lab: labelのフォント  
+* `legend`のパラメータ  
+  bty: 文字のタイプ  
 
 # 統計 Tips
 * 不偏分散  

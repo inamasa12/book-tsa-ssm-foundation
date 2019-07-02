@@ -9,9 +9,9 @@
 * `plot`のパラメータ  
   col: 色（全ポイントについて指定）  
   pch: マーカーのタイプ  
-  cex: マーカーのフォント  
-  cex.main: mainのフォント  
-  cex.lab: labelのフォント  
+  cex: マーカーのフォント（倍率）  
+  cex.main: mainのフォント（倍率）  
+  cex.lab: labelのフォント（倍率）  
   font.lab: labelのフォント  
   xaxt: 横軸の設定  
   lwd: 線幅  

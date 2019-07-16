@@ -37,7 +37,8 @@
 ⇒ p値が小さいほど帰無仮説は棄却される  
 * t検定  
 検定量が有意にゼロと異なるかを検定  
-<img src="https://latex.codecogs.com/gif.latex?\frac{\bar{x}}{\sqrt{\frac{s^{2}}{n}}}" />  
+  <img src="https://latex.codecogs.com/gif.latex?\frac{\bar{x}}{\sqrt{\frac{s^{2}}{n}}}" />  
+
 * 分散分析（ANOVA）  
 条件別に期待値が有意に異なるかを検定  
 条件別期待値のばらつきと残差のばらつきの比を検定  

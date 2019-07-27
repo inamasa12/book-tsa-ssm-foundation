@@ -9,7 +9,7 @@
 * `plot`のパラメータ  
   col: 色（全ポイントについて指定）  
   pch: マーカーのタイプ  
-  cex: フォント（倍率）  
+  cex: マーカーのフォント（倍率）  
   cex.main: mainのフォント（倍率）  
   cex.lab: labelのフォント（倍率）  
   font.lab: labelのフォント  
@@ -17,7 +17,7 @@
   lwd: 線幅  
   lty: 線種  
   mar: 余白  
-  
+  type: プロットのタイプ（p: ポイント、l: 線、b: 両方等）  
   
 * `legend`のパラメータ  
   bty: 凡例の枠のタイプ  

@@ -77,7 +77,7 @@
 
 * 分散分析  
 `library(car)`: 回帰関連パッケージ、ANOVA Type2が使用可能  
-`anova(モデル)`: ANOVA  
+`anova(モデル), anova(モデル, モデル)`: ANOVA  
 `Anova(モデル, type = "II")`: Type1以外のANOVA  
 
 

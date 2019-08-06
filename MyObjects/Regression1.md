@@ -59,14 +59,14 @@
 `dnorm(〇, mean = 平均, std = 標準偏差)`: 正規分布の密度  
 `df(〇, 自由度, 自由度)`: F分布の密度  
 `dpois(〇, lambda = 〇)`: ポアソン分布の密度  
+`dpchisq(〇, df = 〇)`: カイ二乗分布の密度  
 `rnorm(mean = 平均, std = 標準偏差, n = 個数)`: 正規乱数の生成  
 
-
-
-* 回帰  
+* 正規線形回帰  
 `lm(〇 ~ 〇, data = データ)`: 回帰分析  
 　`〇 ～ .`で全変数を説明変数に入れる  
 　`〇 ～ (.)^2`で交差項を説明変数に入れる  
+`coef(モデル)`: 回帰係数   
 `predict(モデル, newdata = データ, level = 信頼区間)`:  
 　指定したデータに既存モデルを適用して予測、データを指定しない場合は学習データを用いて予測  
 `update(モデル, ~. +(-) 〇〇)`: モデルの修正  
@@ -74,6 +74,16 @@
 `dredge(モデル, rank = "AIC")`:  
 　指定した評価基準でモデル選択（モデルは`na.action =  "na.fail"`で作られている必要がある）  
 `get.models(dredgeの出力オブジェクト,  subset = TRUE)`: モデルの出力  
+
+* 一般化線形回帰  
+`glm(〇 ~ 〇, data = データ, family = 〇)`: 一般化線形回帰分析
+`deviance(モデル)`: deviance  
+`resid(モデル, type = "response")`: 予測残差  
+　`y - predict(モデル, type = "response")`  
+　`y - exp(predict(モデル))`  
+`resid(モデル), resid(モデル, type = "deviance")`: deviance残差  
+`anova(モデル, test = "Chisq")`: 尤度比検定  
+
 
 * 分散分析  
 `library(car)`: 回帰関連パッケージ、ANOVA Type2が使用可能  

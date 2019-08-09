@@ -76,14 +76,16 @@
 `get.models(dredgeの出力オブジェクト,  subset = TRUE)`: モデルの出力  
 
 * 一般化線形回帰  
-`glm(〇 ~ 〇, data = データ, family = 〇)`: 一般化線形回帰分析
-`deviance(モデル)`: deviance  
+`glm(〇 ~ 〇, data = データ, family = 〇)`: 一般化線形回帰分析  
+　対数尤度の最大化によりパラメータを得る  
+`deviance(モデル)`: deviance、deviance残差の二乗合計  
 `resid(モデル, type = "response")`: 予測残差  
 　`y - predict(モデル, type = "response")`  
 　`y - exp(predict(モデル))`  
 `resid(モデル), resid(モデル, type = "deviance")`: deviance残差  
 `anova(モデル, test = "Chisq")`: 尤度比検定  
-
+`logLik(モデル)`: 対数尤度
+`AIC(モデル)`: AIC  
 
 * 分散分析  
 `library(car)`: 回帰関連パッケージ、ANOVA Type2が使用可能  

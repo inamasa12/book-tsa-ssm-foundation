@@ -84,7 +84,7 @@
 　`y - exp(predict(モデル))`  
 `resid(モデル), resid(モデル, type = "deviance")`: deviance残差  
 `anova(モデル, test = "Chisq")`: 尤度比検定  
-`logLik(モデル)`: 対数尤度
+`logLik(モデル)`: 対数尤度  
 `AIC(モデル)`: AIC  
 
 * 分散分析  

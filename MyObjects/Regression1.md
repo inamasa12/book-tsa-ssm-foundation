@@ -83,6 +83,10 @@
 　`y - predict(モデル, type = "response")`  
 　`y - exp(predict(モデル))`  
 `resid(モデル), resid(モデル, type = "deviance")`: deviance残差  
+`predict(モデル, type = 〇)`:  
+　"response" ⇒ 予測値  
+　"link" ⇒ リンク関数の逆関数による変換前の予測値  
+　"term" ⇒ リンク関数の逆関数による変換前の予測値（全平均からの乖離）  
 `anova(モデル, test = "Chisq")`: 尤度比検定  
 `logLik(モデル)`: 対数尤度  
 `AIC(モデル)`: AIC  

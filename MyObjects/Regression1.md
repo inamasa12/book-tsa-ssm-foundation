@@ -62,6 +62,7 @@
 `fisher.test()`: フィッシャーの正確確率検定  
 `pt(〇, df = 自由度)`: t分布のパーセンタイル値（累積密度）  
 `pf(〇, 自由度, 自由度)`: F分布のパーセンタイル値（累積密度）  
+`pchisq(〇, 自由度)`: カイ二乗分布のパーセンタイル値（累積密度）  
 `dnorm(〇, mean = 平均, std = 標準偏差)`: 正規分布の密度  
 `df(〇, 自由度, 自由度)`: F分布の密度  
 `dpois(〇, lambda = 〇)`: ポアソン分布の密度  
@@ -95,7 +96,6 @@
 　ロジスティック回帰（過分散対応）:  
 　　`glm(cbind(A, B), data = データ, family = "quasbinomial", na.action = "na.fail")`  
 　ガンマ回帰： `glm(〇 ~ 〇, data = データ, family = "Gamma(link =log)")`  
- 
 `deviance(モデル)`: deviance、deviance残差の二乗合計  
 `resid(モデル, type = "response")`: 予測残差  
 　`y - predict(モデル, type = "response")`  
@@ -119,6 +119,7 @@
 `LETTERS`: アルファベット  
 `ls()`: ワーキングディレクトリのオブジェクトを表示  
 `rm(〇〇〇)`: 削除  
+`loglin(分割表, margin = 交互作用の対象となるベクトル)`: 分割表分析  
 
 
 

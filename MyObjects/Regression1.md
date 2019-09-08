@@ -31,6 +31,8 @@
 `sample(データ, size = サンプル数)`: ランダムサンプリング  
 `as.factor(データ)`: カテゴリカルデータに変換  
 `offset(変数)`: 傾きが「１」の変数  
+`xtab(集計する変数, データ)`: 分割表を作成  
+
 
 
 * 描画  
@@ -57,13 +59,17 @@
 `sd()`: 標準偏差  
 `t.test()`:  
 　`〇 ~ 〇`を入力すると回帰係数のt検定、一変数を入力するとt検定、二変数を入力すると差の検定  
+ 
+ 
+ 
 `pt(〇, df = 自由度)`: t分布のパーセンタイル値（累積密度）  
 `pf(〇, 自由度, 自由度)`: F分布のパーセンタイル値（累積密度）  
 `dnorm(〇, mean = 平均, std = 標準偏差)`: 正規分布の密度  
 `df(〇, 自由度, 自由度)`: F分布の密度  
 `dpois(〇, lambda = 〇)`: ポアソン分布の密度  
 `dpchisq(〇, df = 〇)`: カイ二乗分布の密度  
-`qpois(〇, lambda = 〇) `: 指定したパーセンタイル値に相当する値  
+`qpois(〇, lambda = 〇) `: ポアソン分布の指定したパーセンタイル値に相当する値  
+`qgamma(〇, shape = 〇, scale = 〇) `: ガンマ分布の指定したパーセンタイル値に相当する値  
 `rnorm(mean = 平均, std = 標準偏差, n = 個数)`: 正規乱数の生成  
 ⇒ p:累積密度、d:密度（density）、q:パーセンタイル値（quantile）、r:乱数値（random）を返す
 
@@ -79,6 +85,7 @@
 `dredge(モデル, rank = "AIC")`:  
 　指定した評価基準でモデル選択（モデルは`na.action =  "na.fail"`で作られている必要がある）  
 `get.models(dredgeの出力オブジェクト,  subset = TRUE)`: モデルの出力  
+`plot(モデル)`: 残差に関するプロット  
 
 * 一般化線形回帰  
 `glm(〇 ~ 〇, data = データ, family = 〇)`: 一般化線形回帰分析  
@@ -87,6 +94,7 @@
 　オフセット項つきのポアソン回帰： `glm(〇 ~ 〇 + as.factor(〇) + offset(〇), data = データ, family = "poisson")`  
 　ロジスティック回帰： `glm(cbind(A, B), data = データ, family = "binomial", na.action = "na.fail")`  
 　ロジスティック回帰（過分散対応）: `glm(cbind(A, B), data = データ, family = "quasbinomial", na.action = "na.fail")`  
+　ガンマ回帰： `glm(〇 ~ 〇, data = データ, family = "Gamma(link =log)")`  
  
 `deviance(モデル)`: deviance、deviance残差の二乗合計  
 `resid(モデル, type = "response")`: 予測残差  

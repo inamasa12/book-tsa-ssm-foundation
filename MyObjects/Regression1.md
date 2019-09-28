@@ -122,6 +122,11 @@
 　ロジスティック回帰（過分散対応）:  
 　　`glm(cbind(A, B), data = データ, family = "quasbinomial", na.action = "na.fail")`  
 　ガンマ回帰： `glm(〇 ~ 〇, data = データ, family = "Gamma(link =log)")`  
+  ゼロ切断モデル：
+  ゼロインフレモデル：
+  ハードモデル：
+  対数線形モデル（分割表分析）： `loglin(分割表, margin = 交互作用の対象となるベクトル)`  
+ 
 `deviance(モデル)`: deviance、deviance残差の二乗合計  
 `resid(モデル, type = "response")`: 予測残差  
 　`y - predict(モデル, type = "response")`  
@@ -149,7 +154,7 @@
 `LETTERS`: アルファベット  
 `ls()`: ワーキングディレクトリのオブジェクトを表示  
 `rm(〇〇〇)`: 削除  
-`loglin(分割表, margin = 交互作用の対象となるベクトル)`: 分割表分析  
+
 
 
 

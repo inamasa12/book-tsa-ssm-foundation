@@ -113,16 +113,15 @@
 
 
 * 一般化線形回帰  
-`glm(〇 ~ 〇, data = データ, family = 〇)`  
- 一般化線形回帰分析  
+`glm(〇 ~ 〇, data = データ, family = 〇)`    
  対数尤度の最大化によりパラメータを得る  
   * ポアソン回帰  
   `glm(〇 ~ 〇, data = データ, family = "poisson")`  
-　* オフセット項つきのポアソン回帰    
+　* オフセット項つきのポアソン回帰  
 　`glm(〇 ~ 〇 + as.factor(〇) + offset(〇), data = データ, family = "poisson")`  
 　* ロジスティック回帰  
   `glm(cbind(A, B), data = データ, family = "binomial", na.action = "na.fail")`  
-　* ロジスティック回帰（過分散対応）    
+　* ロジスティック回帰（過分散対応）  
 　`glm(cbind(A, B), data = データ, family = "quasbinomial", na.action = "na.fail")`  
 　* ガンマ回帰  
   `glm(〇 ~ 〇, data = データ, family = "Gamma(link =log)")`  

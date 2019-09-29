@@ -113,19 +113,27 @@
 
 
 * 一般化線形回帰  
-`glm(〇 ~ 〇, data = データ, family = 〇)`: 一般化線形回帰分析  
-　対数尤度の最大化によりパラメータを得る  
-　ポアソン回帰: `glm(〇 ~ 〇, data = データ, family = "poisson")`  
-　オフセット項つきのポアソン回帰：  
-　　`glm(〇 ~ 〇 + as.factor(〇) + offset(〇), data = データ, family = "poisson")`  
-　ロジスティック回帰： `glm(cbind(A, B), data = データ, family = "binomial", na.action = "na.fail")`  
-　ロジスティック回帰（過分散対応）:  
-　　`glm(cbind(A, B), data = データ, family = "quasbinomial", na.action = "na.fail")`  
-　ガンマ回帰： `glm(〇 ~ 〇, data = データ, family = "Gamma(link =log)")`  
-  ゼロ切断モデル：
-  ゼロインフレモデル：
-  ハードモデル：
-  対数線形モデル（分割表分析）： `loglin(分割表, margin = 交互作用の対象となるベクトル)`  
+`glm(〇 ~ 〇, data = データ, family = 〇)`  
+ 一般化線形回帰分析  
+ 対数尤度の最大化によりパラメータを得る  
+  * ポアソン回帰  
+  `glm(〇 ~ 〇, data = データ, family = "poisson")`  
+　* オフセット項つきのポアソン回帰    
+　`glm(〇 ~ 〇 + as.factor(〇) + offset(〇), data = データ, family = "poisson")`  
+　* ロジスティック回帰  
+  `glm(cbind(A, B), data = データ, family = "binomial", na.action = "na.fail")`  
+　* ロジスティック回帰（過分散対応）    
+　`glm(cbind(A, B), data = データ, family = "quasbinomial", na.action = "na.fail")`  
+　* ガンマ回帰  
+  `glm(〇 ~ 〇, data = データ, family = "Gamma(link =log)")`  
+  * ゼロ切断モデル  
+  `vglm(〇 ~ 〇, data = データ, family = "posnegbinmial" or "pospoisson")`  
+  * ゼロインフレモデル  
+  `zeroinfl(〇 ~ 〇, data = データ, dist = "negbin")`  
+  * ハードルモデル  
+  `hurdle(〇 ~ 〇, data = データ, dist = "negbin")`
+  * 対数線形モデル（分割表分析）  
+  `loglin(分割表, margin = 交互作用の対象となるベクトル)`  
  
 `deviance(モデル)`: deviance、deviance残差の二乗合計  
 `resid(モデル, type = "response")`: 予測残差  

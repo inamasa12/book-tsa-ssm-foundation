@@ -325,6 +325,9 @@ abs(polyroot(c(1, coef(sarimax_petro_law)[c("sma1")])))
 checkresiduals(sarimax_petro_law)
 checkresiduals(max_arimax_petro_law)
 
+dwtest(resid(max_arimax_petro_law))
+
+
 jarque.bera.test(resid(sarimax_petro_law))
 jarque.bera.test(resid(max_arimax_petro_law))
 
@@ -348,6 +351,8 @@ max_arimax_f <- forecast(
 )
 
 autoplot(max_arimax_f, predict.colour = 1, main = "ARIMAによる予測")
+class(max_arimax_f)
+
 
 petro_law_mean <- data.frame(
   PetrolPrice=rep(mean(train[, "PetrolPrice"]), 12),

@@ -44,8 +44,26 @@ legend(
 )
 
 # modeling
+names(data.0)
+summary(data.0)
+
 lm.model.0 <- lm(length ~ food + medicine, data = data.0)
+lm.model.1 <- lm(length ~ ., data = data.0, na.action = "na.fail")
+lm.model.2 <- lm(length ~ (.)^2, data = data.0, na.action = "na.fail")
+
+summary(lm.model.0)
+summary(lm.model.1)
+summary(lm.model.2)
+library(car)
 anova(lm.model.0)
+Anova(lm.model.0, type = "II")
+Anova(lm.model.2, type = "III")
+library(MuMIn)
+dredge(lm.model.2, rank = "AIC")
+
+anova(lm.model.0)
+
+
 
 # predict
 predict(lm.model.0,
@@ -56,8 +74,10 @@ predict(lm.model.0,
         interval = "prediction", # 予想のレンジ設定
         level = 0.95
 )
+
 ?predict
 predict(lm.model.0) # forcast for training data
+
 newfood <- seq(from = min(data.0$food), to = max(data.0$food), by = 1)
 new.1 <- data.frame(
   food = newfood,
@@ -269,7 +289,7 @@ for (i in 1:nrow(d3)){
 sum.zansa2 <- sum(zansa2)
 
 plot(d3$Y ~ d3$X, ylim = c(0, 15), main = c("a=2, b=2の時の予測結果"))
-abline(a = 2, b = 2)
+abline(a = 4, b = 10)
 
 # Original Function
 # 指定した予測モデルについて残差ベクトルを算出
@@ -347,7 +367,7 @@ d3 <- data.frame(
   X = 1:5
 )
 
-lm.model.NULL <= lm(Y ~ 1, data = d3)
+lm.model.NULL <- lm(Y ~ 1, data = d3)
 predict(lm.model.NULL)
 
 lm.model <- lm(Y ~ X, data = d3)
@@ -401,6 +421,10 @@ x <- seq(0, 20, by = 0.1)
 F <- df(x, 1, 3)
 hist(F.value, xlim = c(0, 20), ylim = c(0, 1), prob = T, breaks = 50)
 lines(x, F, col = 2, lwd = 2)
+lines(F ~ x)
+
+
+N <-  dn(x)
 
 #分布の作成
 #鞍点
@@ -485,6 +509,9 @@ for(i in 1:N.sim){
   kekka[i] <- sample(1:6, size = N.sample, replace = T)
 }
 hist(kekka, breaks = 0:6)
+?sample
+
+
 
 # ５回の合計値
 N.sample <- 5
@@ -643,6 +670,15 @@ pairs(data3)
 summary(lm(beer ~ temperature, data = data3))
 t.test(data3$beer ~ data3$weather)　#差の検定
 
+summary(data3)
+
+
+data3[data3[, "weather"] == "fine", "beer"]
+data3[data3[, "weather"] == "rain", "beer"]
+t.test(data3[data3[, "weather"] == "fine", "beer"], data3[data3[, "weather"] == "rain", "beer"])
+
+
+
 #まずはまとめてやる
 model.beer0 <- lm(beer ~ ., data = data3)
 summary(model.beer0)
@@ -697,13 +733,43 @@ abline(
   col = 2
 )
 
+# カテゴリデータの場合
+data <- data.frame(Y = c(0, 5, 3, 10, 1, 6, 2, 13),
+                   sisaku_A = rep(c("a.not", "act", "a.not", "act"), 2),
+                   sisaku_B = rep(c("a.not", "a.not", "act", "act"), 2)
+                   )
+data
+model <-  lm(Y ~ (.)^2, data = data)
+pairs(data)
+model.2 <- lm(Y ~ sisaku_A, data = data, subset = (sisaku_B == "a.not"))
+plot(data$Y ~ data$sisaku_A)
+model.3 <- lm(Y ~ sisaku_A, data = data, subset = (sisaku_B == "act"))
+plot(data$Y ~ data$sisaku_B)
+
+model$coef
+model.2$coef
+model.3$coef
+data.not <- subset(data, sisaku_B == "a.not")
+data.act <- subset(data, sisaku_B == "act")
+par(mfrow = c(1, 2))
+plot(data.not$Y ~ data.not$sisaku_A, ylim = c(0, 15))
+plot(data.act$Y ~ data.act$sisaku_A, ylim = c(0, 15))
+
+data <- data.frame(Y = c(1, 5, 3, 10),
+                   sisaku_A = rep(c("a.not", "act", "a.not", "act"), 1),
+                   sisaku_B = rep(c("a.not", "a.not", "act", "act"), 1)
+)
+model <- lm(Y ~ (.)^2, data = data)
+model.2 <- lm(Y ~ sisaku_A, data = data, subset = (sisaku_B == "a.not"))
+model.3 <- lm(Y ~ sisaku_A, data = data, subset = (sisaku_B == "act"))
+model$coef
+model.2$coef
+model.3$coef
+anova(model)
+Anova(model, type = "II")
+Anova(model, type = "III")
 
 
-
-
-
-
-1347
 
 
 

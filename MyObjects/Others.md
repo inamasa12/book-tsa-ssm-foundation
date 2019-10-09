@@ -12,7 +12,9 @@
 予測能力の評価  
 1. 相対エントロピー  
 情報量を下記で定義（まれな事象ほど価値が高い）  
-  <img src="https://latex.codecogs.com/gif.latex?-log\left&space;(&space;p&space;\right&space;)" title="-log\left ( p \right )" />  
-  
+  　<img src="https://latex.codecogs.com/gif.latex?-log\left&space;(&space;p&space;\right&space;)" title="-log\left ( p \right )" />  
+情報量の差の期待値で相対エントロピーを定義 ⇒ 確率分布の違いを表す  
+1. 予測情報量  
+各確率分布の情報量の期待値の差  
   
   

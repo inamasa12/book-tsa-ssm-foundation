@@ -9,4 +9,10 @@
 ## 予測理論とPredictability  
 予測ができている ⇒ 予測ができていない状態ではない  
 予測ができてない ⇒ 確率分布に対する見通しがない  
-
+予測能力の評価  
+1. 相対エントロピー  
+情報量を下記で定義（まれな事象ほど価値が高い）  
+  <img src="https://latex.codecogs.com/gif.latex?-log\left&space;(&space;p&space;\right&space;)" title="-log\left ( p \right )" />  
+  
+  
+  

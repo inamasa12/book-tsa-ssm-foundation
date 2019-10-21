@@ -91,7 +91,7 @@ Fisherの正確確率検定：
 その他、予測を意思決定に使用した場合としない場合に得られた利益の違いを予測評価指標とする方法もある  
 1. 相対エントロピー  
 予測が持つ情報量を下記で定義（まれな事象ほど価値が高い）  
-  
+　  
 　<img src="https://latex.codecogs.com/gif.latex?-log\left&space;(&space;p&space;\right&space;)" title="-log\left ( p \right )"/>  
 情報量の差の期待値で相対エントロピーを定義 ⇒ 確率分布の違いを表す  
 　<img src="https://latex.codecogs.com/gif.latex?\sum&space;p\left&space;(&space;X_{t&plus;1}|o_{t}&space;\right&space;)log\left&space;[&space;\frac{p\left&space;(&space;X_{t&plus;1}|o_{t}&space;\right&space;)}{p\left&space;(&space;X_{t&plus;1}&space;\right&space;)}\right&space;]" title="\sum p\left ( X_{t+1}|o_{t} \right )log\left [ \frac{p\left ( X_{t+1}|o_{t} \right )}{p\left ( X_{t+1} \right )}\right ]" />  

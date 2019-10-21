@@ -64,7 +64,8 @@ rxxx(n): 乱数
 クロス表において、期待度数と実際の度数の差の二乗を期待度数で割ったものを全て合計した数値がカイ二乗値  
 カイ二乗分布に従うカイ二乗値が十分に大きい場合に、変数間に関係があると看做す  
 ⇒ 期待度数との違いが大きい  
-Fisherの正確確率検定：  
+Fisherの正確確率検定： 
+　カイ二乗検定に比べて厳密な独立性の検定（カイ二乗検定は十分なサンプル数が必要）
 　クロス表において、実際の度数に比べて極端な事象の数を数え上げてp値を正確に測定したもの  
 
 ### t検定の考え方  
@@ -97,12 +98,15 @@ Fisherの正確確率検定：
 　<img src="https://latex.codecogs.com/gif.latex?\sum&space;p\left&space;(&space;X_{t&plus;1}|o_{t}&space;\right&space;)log\left&space;[&space;\frac{p\left&space;(&space;X_{t&plus;1}|o_{t}&space;\right&space;)}{p\left&space;(&space;X_{t&plus;1}&space;\right&space;)}\right&space;]" title="\sum p\left ( X_{t+1}|o_{t} \right )log\left [ \frac{p\left ( X_{t+1}|o_{t} \right )}{p\left ( X_{t+1} \right )}\right ]" />  
 1. 予測情報量  
 予測対象となる分布の情報量の期待値を不確実性（知りたい情報）として定義  
+　  
 　<img src="https://latex.codecogs.com/gif.latex?H\left&space;(&space;X_{t&plus;1}&space;\right&space;)=-\sum&space;P\left&space;(&space;X_{t&plus;1}&space;\right&space;)\times&space;logP\left&space;(&space;X_{t&plus;1}&space;\right&space;)" title="H\left ( X_{t+1} \right )=-\sum P\left ( X_{t+1} \right )\times logP\left ( X_{t+1} \right )" />  
 予測を行った時の不確実性の低下幅を予測情報量とする  
+　  
 　<img src="https://latex.codecogs.com/gif.latex?H\left&space;(&space;X_{t&plus;1}&space;\right&space;)-H\left&space;(&space;X_{t&plus;1}|o_{t}&space;\right&space;)" title="H\left ( X_{t+1} \right )-H\left ( X_{t+1}|o_{t} \right )" />  
 等ウェイトの確率分布の不確実性が最も高い  
 1. 相互情報量（MI）  
 予測した場合と予測しない場合が変わらない時、予測による不確実性の低下がない場合にゼロ  
+　  
 　<img src="https://latex.codecogs.com/gif.latex?\sum&space;\sum&space;p\left&space;(&space;X_{t&plus;1},o_{t}&space;\right&space;)log\left&space;\lfloor&space;\frac{p\left&space;(&space;X_{t&plus;1}|o_{t}&space;\right&space;)}{p\left&space;(&space;X_{t&plus;1}&space;\right&space;)}&space;\right&space;\rfloor" title="\sum \sum p\left ( X_{t+1},o_{t} \right )log\left \lfloor \frac{p\left ( X_{t+1}|o_{t} \right )}{p\left ( X_{t+1} \right )} \right \rfloor" />  
 
 

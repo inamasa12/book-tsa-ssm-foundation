@@ -84,7 +84,8 @@ Fisherの正確確率検定：
 　  
 　<img src="https://latex.codecogs.com/gif.latex?F&space;=&space;\frac{s_{X}^{2}}{s_{Y}^{2}}" title="F = \frac{s_{X}^{2}}{s_{Y}^{2}}" />  
 1. 分散が異なる場合  
-<img src="https://latex.codecogs.com/gif.latex?t&space;=&space;\frac{\bar{X}-\bar{Y}}{\sqrt{\frac{s_{X}^{2}}{m}&plus;\frac{s_{Y}^{2}}{n}}}" title="t = \frac{\bar{X}-\bar{Y}}{\sqrt{\frac{s_{X}^{2}}{m}+\frac{s_{Y}^{2}}{n}}}" />
+　  
+　<img src="https://latex.codecogs.com/gif.latex?t&space;=&space;\frac{\bar{X}-\bar{Y}}{\sqrt{\frac{s_{X}^{2}}{m}&plus;\frac{s_{Y}^{2}}{n}}}" title="t = \frac{\bar{X}-\bar{Y}}{\sqrt{\frac{s_{X}^{2}}{m}+\frac{s_{Y}^{2}}{n}}}" />
 
 ### R Tips  
 chisq.test(クロス表, correct=F): カイ二乗検定（連続性の補正なし）  

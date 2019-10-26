@@ -76,7 +76,10 @@ Fisherの正確確率検定：
 対応のあるt検定は差について1群のt検定を行う  
 2群のt検定は両者の分散が等しいか否かで対応が異なる  
 1. 等分散の場合  
-<img src="https://latex.codecogs.com/gif.latex?s^{2}=\frac{s_{x}^{2}&plus;s_{y}^{2}}{m&plus;n-2}" title="s^{2}=\frac{s_{x}^{2}+s_{y}^{2}}{m+n-2}" /></a>  
+　  
+<img src="https://latex.codecogs.com/gif.latex?s^{2}=\frac{s_{X}^{2}&plus;s_{Y}^{2}}{m&plus;n-2}" title="s^{2}=\frac{s_{x}^{2}+s_{y}^{2}}{m+n-2}" />  
+<img src="https://latex.codecogs.com/gif.latex?t&space;=&space;\frac{\bar{X}-\bar{Y}}{s\sqrt{\frac{1}{m}&plus;\frac{1}{n}}}" title="t = \frac{\bar{X}-\bar{Y}}{s\sqrt{\frac{1}{m}+\frac{1}{n}}}" />  
+
 1. 分散が異なる場合  
 
 

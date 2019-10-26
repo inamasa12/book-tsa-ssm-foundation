@@ -79,9 +79,9 @@ Fisherの正確確率検定：
 　  
 　<img src="https://latex.codecogs.com/gif.latex?s^{2}=\frac{s_{X}^{2}&plus;s_{Y}^{2}}{m&plus;n-2}" title="s^{2}=\frac{s_{x}^{2}+s_{y}^{2}}{m+n-2}" />  
 　<img src="https://latex.codecogs.com/gif.latex?t&space;=&space;\frac{\bar{X}-\bar{Y}}{s\sqrt{\frac{1}{m}&plus;\frac{1}{n}}}" title="t = \frac{\bar{X}-\bar{Y}}{s\sqrt{\frac{1}{m}+\frac{1}{n}}}" />  
+　  
 先に等分散性に関するF検定を行っておく必要がある  
-　<img src="https://latex.codecogs.com/gif.latex?F&space;=&space;\frac{s_{X}^{2}}{s_{Y}^{2}}" title="F = \frac{s_{X}^{2}}{s_{Y}^{2}}" />
-
+　<img src="https://latex.codecogs.com/gif.latex?F&space;=&space;\frac{s_{X}^{2}}{s_{Y}^{2}}" title="F = \frac{s_{X}^{2}}{s_{Y}^{2}}" />  
 
 1. 分散が異なる場合  
 <img src="https://latex.codecogs.com/gif.latex?t&space;=&space;\frac{\bar{X}-\bar{Y}}{\sqrt{\frac{s_{X}^{2}}{m}&plus;\frac{s_{Y}^{2}}{n}}}" title="t = \frac{\bar{X}-\bar{Y}}{\sqrt{\frac{s_{X}^{2}}{m}+\frac{s_{Y}^{2}}{n}}}" />

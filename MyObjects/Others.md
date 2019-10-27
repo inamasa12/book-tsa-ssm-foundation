@@ -72,24 +72,31 @@ Fisherの正確確率検定：
 ### t検定の考え方  
 母集団が正規分布に従っていることを前提  
 中心極限定理より、標本平均を母分散で割ったものは正規分布に従うが、不偏分散で割ったものはt分布に従う  
-通常のt検定を1群のt検定と呼ぶ  
-対応のあるt検定は差について1群のt検定を行う  
-2群のt検定は両者の分散が等しいか否かで対応が異なる  
+通常のt検定を１群のt検定と呼ぶ  
+対応のある２群のt検定は、両者の差について１群のt検定を行う  
+２群のt検定は両者の分散が等しいか否かで対応が異なる  
 1. 等分散の場合  
 　  
 　<img src="https://latex.codecogs.com/gif.latex?s^{2}=\frac{s_{X}^{2}&plus;s_{Y}^{2}}{m&plus;n-2}" title="s^{2}=\frac{s_{x}^{2}+s_{y}^{2}}{m+n-2}" />  
+　  
 　<img src="https://latex.codecogs.com/gif.latex?t&space;=&space;\frac{\bar{X}-\bar{Y}}{s\sqrt{\frac{1}{m}&plus;\frac{1}{n}}}" title="t = \frac{\bar{X}-\bar{Y}}{s\sqrt{\frac{1}{m}+\frac{1}{n}}}" />  
 　  
 先に等分散性に関するF検定を行っておく必要がある  
 　  
 　<img src="https://latex.codecogs.com/gif.latex?F&space;=&space;\frac{s_{X}^{2}}{s_{Y}^{2}}" title="F = \frac{s_{X}^{2}}{s_{Y}^{2}}" />  
-1. 分散が異なる場合  
+1. 分散が異なる場合（ウェルチの検定）  
 　  
 　<img src="https://latex.codecogs.com/gif.latex?t&space;=&space;\frac{\bar{X}-\bar{Y}}{\sqrt{\frac{s_{X}^{2}}{m}&plus;\frac{s_{Y}^{2}}{n}}}" title="t = \frac{\bar{X}-\bar{Y}}{\sqrt{\frac{s_{X}^{2}}{m}+\frac{s_{Y}^{2}}{n}}}" />
 
 ### R Tips  
 chisq.test(クロス表, correct=F): カイ二乗検定（連続性の補正なし）  
 fisher.test(クロス表): Fisherの正確確率検定  
+t.test(データ): １群のt検定  
+t.test(データＡ, データＢ, paired=T): 対応のある２群のt検定  
+var.test(データＡ, データＢ): F検定（分散比の検定）  
+t.test(データＡ, データＢ, var.equal=T): ２群のt検定（等分散の場合）  
+t.test(データＡ, データＢ, var.equal=F): ２群のt検定（分散が異なる場合）  
+
 
 
 

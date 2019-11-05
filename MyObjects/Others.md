@@ -167,10 +167,7 @@ summary(推定モデル): 寄与率等
 モデル毎の予測残差の差の大きさを分散分析で検定  
 * AICによるモデル選択  
 最も良いモデルとの差分を表すAICでモデルを評価  
-AICは予測モデルの対数尤度の期待値に-1を乗じたもの  
-
-
-
+AICは予測モデルの対数尤度の期待値に-1を乗じたもの（自由度調整あり）  
 
 
 ## R Tips  
@@ -178,6 +175,9 @@ predict(モデル, データ, se.fit=T, interval="confidence"): 信頼区間
 predict(モデル, データ, se.fit=T, interval="prediction"): 予測区間  
 モデル$se.fit: 条件期待値の標準誤差  
 モデル$residual.scale: 残差の標準偏差  
+anova(モデル１, モデル２): 分散分析による予測力の差の検定  
+AIC(モデル): AICの算出  
+dredge(最も複雑なモデル, rank="AIC"): 各モデルをAICでランキング  
 
 
 

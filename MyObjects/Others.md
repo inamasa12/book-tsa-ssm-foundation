@@ -182,6 +182,27 @@ dredge(最も複雑なモデル, rank="AIC"): 各モデルをAICでランキン�
 # 平滑化スプラインと加法モデル  
 
 
+## R Tips  
+names(summary(モデル)): オブジェクトの内容を表示  
+
+# Rの型  
+* basic type  
+Vectors、Lists、Language、Expression、Function、Environments、Pairlistの7つがある  
+Vectorsが基本  
+`typeof()`や`mode()`でタイプを調べることができるが、Vectorsの場合、構成要素のデータ型が返り値になる  
+* type  
+Vectorsの構成要素のデータ型  
+logical、numeric、integer、double、complex、characterの6つがある
+numericはintegerとdoubleを合わせたもの  
+* オブジェクトのクラス属性  
+matrix、array、factor、data.frame等がある  
+`class()`で調べることができる  
+オブジェクトの属性は`attributes()`で取得できる  
+オブジェクトの構造を調べる場合は`str()`  
+
+
+
+
 
 
 

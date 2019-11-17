@@ -111,7 +111,7 @@ prcomp(データ, scale=T): 主成分分析
 summary(推定モデル): 寄与率等  
 推定モデル$rotation: 主成分  
 推定モデル$x: 主成分得点  
-
+　  
 
 # 予測理論  
 
@@ -150,7 +150,7 @@ summary(推定モデル): 寄与率等
 予測した場合と予測しない場合が変わらない時、予測による不確実性の低下がない場合にゼロ  
 　  
 　<img src="https://latex.codecogs.com/gif.latex?\sum&space;\sum&space;p\left&space;(&space;X_{t&plus;1},o_{t}&space;\right&space;)log\left&space;\lfloor&space;\frac{p\left&space;(&space;X_{t&plus;1}|o_{t}&space;\right&space;)}{p\left&space;(&space;X_{t&plus;1}&space;\right&space;)}&space;\right&space;\rfloor" title="\sum \sum p\left ( X_{t+1},o_{t} \right )log\left \lfloor \frac{p\left ( X_{t+1}|o_{t} \right )}{p\left ( X_{t+1} \right )} \right \rfloor" />  
-
+　  
 
 # 回帰分析系  
 
@@ -196,7 +196,8 @@ library(mgcv): 平滑化スプラインモジュール
 gam(被説明変数 ~ s(説明変数), s=平滑化パラメータ): 平滑化スプライン  
 gam(被説明変数 ~ s(説明変数A, 説明変数B)): 薄版平滑化スプライン  
 gam(被説明変数 ~ s(説明変数A) + s(説明変数B)): 加法モデル  
-
+　  
+   
 # カオス時系列  
 
 

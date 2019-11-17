@@ -197,6 +197,9 @@ gam(被説明変数 ~ s(説明変数), s=平滑化パラメータ): 平滑化ス
 gam(被説明変数 ~ s(説明変数A, 説明変数B)): 薄版平滑化スプライン  
 gam(被説明変数 ~ s(説明変数A) + s(説明変数B)): 加法モデル  
 
+# カオス時系列  
+
+
 # Rの型  
 * basic type  
 Vectors、Lists、Language、Expression、Function、Environments、Pairlistの7つがある  
@@ -211,13 +214,3 @@ matrix、array、factor、data.frame等がある
 `class()`で調べることができる  
 オブジェクトの構造全てを調べる場合は`str()`  
 オブジェクトの属性リストは`attributes()`で取得できる  
-
-
-
-
-
-
-
-
-  
-  

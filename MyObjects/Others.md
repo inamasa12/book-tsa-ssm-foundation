@@ -202,6 +202,7 @@ gam(被説明変数 ~ s(説明変数A) + s(説明変数B)): 加法モデル
 ## カオス時系列の基礎  
 不規則な変動を示す決定論的なデータ系列をカオスと呼ぶ  
 代表的なものにロジスティック写像がある  
+　  
 <img src="https://latex.codecogs.com/gif.latex?x_{t}=r\times&space;x_{t-1}\left&space;(&space;1-x_{t-1}&space;\right&space;)" title="x_{t}=r\times x_{t-1}\left ( 1-x_{t-1} \right )" /></a>  
 
 

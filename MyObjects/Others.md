@@ -215,10 +215,23 @@ gam(被説明変数 ~ s(説明変数A) + s(説明変数B)): 加法モデル
 logisticMap(r=パラメータ, n.sample=サンプル数, start=初期値, n.transient=ラグ): ロジスティック写像
 
 # MIC(Maximum Information Coefficient)  
+## 定義  
 二変量の関係性を評価する指標で非線形の関係も捉えることができる  
 相関係数同様に０から１の間に標準化されており、１に近いほど関係が強い  
 有限の範囲でデータの区分を増やした時に相互情報量が高まればMICは高くなる  
 派生指標にMASとMIC-ρ2がある  
+MAS:  
+ゼロに近いほど関係が単調  
+二つの変数を入れ替えた時のMICの差の絶対値  
+MIC-ρ2:  
+１に近いほど非線形性が強い  
+MICとピアソンの相関係数の差  
+
+## R Tips  
+install.packages("minerva"): パッケージのインストール  
+library(minerva): パッケージをアクティブにする  
+mine(x, y): MIC等の算出  
+
 
 # Rの型  
 * basic type  

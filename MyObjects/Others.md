@@ -214,9 +214,11 @@ gam(被説明変数 ~ s(説明変数A) + s(説明変数B)): 加法モデル
 ## R Tips  
 logisticMap(r=パラメータ, n.sample=サンプル数, start=初期値, n.transient=ラグ): ロジスティック写像
 
-# MIC  
-
-
+# MIC(Maximum Information Coefficient)  
+二変量の関係性を評価する指標で非線形の関係も捉えることができる  
+相関係数同様に０から１の間に標準化されており、１に近いほど関係が強い  
+有限の範囲でデータの区分を増やした時に相互情報量が高まればMICは高くなる  
+派生指標にMASとMIC-ρ2がある  
 
 # Rの型  
 * basic type  

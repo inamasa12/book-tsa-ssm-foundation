@@ -232,6 +232,16 @@ install.packages("minerva"): パッケージのインストール
 library(minerva): パッケージをアクティブにする  
 mine(x, y): MIC等の算出  
 
+# 株式データ  
+
+## R Tips  
+install.packages("quantmod"): xtsパッケージのインストール  
+library(quantmod): パッケージをアクティブにする  
+ax.xts(read.zoo(日付列を含むデータフレーム)): xts型のデータ作成  
+chartSeries(xtsデータ, subset=対象時点, type="candlesticks"): ローソク足の作成  
+
+
+
 
 # Rの型  
 * basic type  

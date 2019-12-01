@@ -214,6 +214,7 @@ gam(被説明変数 ~ s(説明変数A) + s(説明変数B)): 加法モデル
 
 ## R Tips  
 logisticMap(r=パラメータ, n.sample=サンプル数, start=初期値, n.transient=ラグ): ロジスティック写像
+　  
 
 # MIC(Maximum Information Coefficient)  
 ## 定義  

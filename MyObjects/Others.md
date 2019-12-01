@@ -197,7 +197,7 @@ gam(被説明変数 ~ s(説明変数), s=平滑化パラメータ): 平滑化ス
 gam(被説明変数 ~ s(説明変数A, 説明変数B)): 薄版平滑化スプライン  
 gam(被説明変数 ~ s(説明変数A) + s(説明変数B)): 加法モデル  
 　  
-   
+
 # カオス時系列  
 ## カオス時系列の基礎  
 不規則な変動を示す決定論的なデータ系列をカオスと呼ぶ  
@@ -231,14 +231,34 @@ MICとピアソンの相関係数の差
 install.packages("minerva"): パッケージのインストール  
 library(minerva): パッケージをアクティブにする  
 mine(x, y): MIC等の算出  
-
+　  
+   
 # 株式データ  
+## 予測の評価  
+ナイーブな予測との比較を行う  
+定常過程: 過去平均値  
+非定常過程: 前期値  
+* 予測誤差指標  
+ME(Mean Error): 平均誤差  
+RMSE(Root Mean Sauare Error): 平均平方二乗誤差  
+MAE(Mean Absolute Error): 平均絶対誤差  
+MPE(Mean Percentage Error): 平均誤差率（真値に対する誤差の比率）  
+MAPE(Mean Absolute Percentage Error): 平均絶対誤差率  
+MASE(Mean Absolute Scaled Error): スケーリングされた平均絶対誤差（ナイーブ予測に対する相対値）  
+ACF1(Autocorrelation of Errors at lag1): 誤差の自己相関  
+Theil's U: ナイーブ予測との比較  
+
 
 ## R Tips  
 install.packages("quantmod"): xtsパッケージのインストール  
 library(quantmod): パッケージをアクティブにする  
 ax.xts(read.zoo(日付列を含むデータフレーム)): xts型のデータ作成  
 chartSeries(xtsデータ, subset=対象時点, type="candlesticks"): ローソク足の作成  
+library(forecast): forecastパッケージをアクティブにする  
+meanf(データ): ナイーブ予測モデルの作成（過去平均値）  
+rwf(データ): ナイーブ予測モデルの作成（前期値）  
+accuracy(モデル, 評価用データ): 各種誤差指標の算出  
+　  
 
 
 

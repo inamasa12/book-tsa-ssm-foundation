@@ -254,9 +254,9 @@ Theil's U: ナイーブ予測との比較
 ## R Tips  
 install.packages("quantmod"): xtsパッケージのインストール  
 library(quantmod): パッケージをアクティブにする  
-ax.xts(read.zoo(日付列を含むデータフレーム)): xts型のデータ作成  
-chartSeries(xtsデータ, subset=対象時点, type="candlesticks"): ローソク足の作成  
 library(forecast): forecastパッケージをアクティブにする  
+as.xts(read.zoo(日付列を含むデータフレーム)): xts型のデータ作成  
+chartSeries(xtsデータ, subset=対象時点, type="candlesticks"): ローソク足の作成  
 meanf(データ): ナイーブ予測モデルの作成（過去平均値）  
 rwf(データ): ナイーブ予測モデルの作成（前期値）  
 accuracy(モデル, 評価用データ): 各種誤差指標の算出  

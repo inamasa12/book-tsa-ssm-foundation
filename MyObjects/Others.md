@@ -250,7 +250,6 @@ MASE(Mean Absolute Scaled Error): スケーリングされた平均絶対誤差�
 ACF1(Autocorrelation of Errors at lag1): 誤差の自己相関  
 Theil's U: ナイーブ予測との比較  
 
-
 ## R Tips  
 install.packages("quantmod"): xtsパッケージのインストール  
 library(quantmod): パッケージをアクティブにする  
@@ -259,8 +258,10 @@ as.xts(read.zoo(日付列を含むデータフレーム)): xts型のデータ作
 chartSeries(xtsデータ, subset=対象時点, type="candlesticks"): ローソク足の作成  
 meanf(データ): ナイーブ予測モデルの作成（過去平均値）  
 rwf(データ): ナイーブ予測モデルの作成（前期値）  
-accuracy(モデル, 評価用データ): 各種誤差指標の算出  
-　  
+forecast(モデル, h=予測期間): モデルによる予測値の出力  
+accuracy(予想値, 実現値): 各種誤差指標の算出  
+auto.arima(データ, ic="aic"): ARIMAモデルの同定  
+
 
 
 

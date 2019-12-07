@@ -13,8 +13,8 @@ DGP: Data Generation Process、モデル化の対象
 
 ## 第三章　数式による時系列データの表記方法  
 * 用語  
+iid: independent and identically distributed、独立で同一の分布に従う系列  
 偏自己相関: k次の偏自己相関とはk-1時点までの影響が取り除かれた自己相関  
 　  
 <img src="https://latex.codecogs.com/gif.latex?P_{tk}=\frac{Cov\left(&space;y_{t}-\widehat{y}_{t},y_{t-k}-\widehat{y}_{t-k}&space;\right)}{\sqrt{Var\left(&space;y_{t}-\widehat{y}_{t}&space;\right)Var\left(&space;y_{t-k}-\widehat{y}_{t-k}&space;\right)}}" title="P_{tk}=\frac{Cov\left( y_{t}-\widehat{y}_{t},y_{t-k}-\widehat{y}_{t-k} \right)}{\sqrt{Var\left( y_{t}-\widehat{y}_{t} \right)Var\left( y_{t-k}-\widehat{y}_{t-k} \right)}}" /></a>  
 （＊） ハット記号は推定量  
-iid: independent and identically distributed、独立で同一の分布に従う系列  

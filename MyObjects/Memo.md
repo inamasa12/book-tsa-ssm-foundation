@@ -13,6 +13,8 @@ DGP: Data Generation Process、モデル化の対象
 
 ## 第三章　数式による時系列データの表記方法  
 * 用語  
+弱定常: 期待値と自己相関が一定  
+強定常: 任意の時点、時間差に関する同時分布が常に同一  
 iid: independent and identically distributed、独立で同一の分布に従う系列  
 偏自己相関: k次の偏自己相関とはk-1時点までの影響が取り除かれた自己相関  
 　  

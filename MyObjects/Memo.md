@@ -86,6 +86,6 @@ AIC: -2 × 最大化対数尤度 + パラメータの数
     window(ts_s, start=c(2018, 4), end=c(2018,6))  
     subset(ts_s, month=3)  
     xts_s <- xts(matrix(rnorm(31, mean=0.005, sd=0.01)),  
-    　　　　order.by=seq(as.Date("2018-01-01"),length=31,by="day")  
-    　　　　)  
+    　　　　　order.by=seq(as.Date("2018-01-01"),length=31,by="day")  
+    　　　　　)  
     xts_s["2018-01-15::2018-01-20"]

@@ -78,11 +78,13 @@ AIC: -2 × 最大化対数尤度 + パラメータの数
 * R Tips  
   * 時系列分析パッケージ  
   xts: 時系列データ分析  
+  forecast: 予測分析  
   * 使用例  
-    * 時系列データの作成  
+    * 時系列データの作成、抽出  
+    ts_s <- ts(rnorm(12, mean=0.03, sd=0.05), start=c(2018, 1), freq=12)  
+    window(ts_s, start=c(2018, 4), end=c(2018,6))  
+    subset(ts_s, month=3)  
     
-   
-  
-
-
-
+    
+    
+    

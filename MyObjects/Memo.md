@@ -80,6 +80,9 @@ AIC: -2 × 最大化対数尤度 + パラメータの数
   * 時系列分析パッケージ  
   xts: 時系列データ分析  
   forecast: 予測分析  
+  urca: 検定  
+  ggplot2: 時系列プロット  
+  ggfortify: 時系列プロット  
   * 使用例  
     * 時系列データの作成、抽出  
     ts_s <- ts(rnorm(12, mean=0.03, sd=0.05), start=c(2018, 1), freq=12)  
@@ -89,3 +92,16 @@ AIC: -2 × 最大化対数尤度 + パラメータの数
     　　　　　order.by=seq(as.Date("2018-01-01"),length=31,by="day")  
     　　　　　)  
     xts_s["2018-01-15::2018-01-20"]
+    * 時系列データのプロット  
+    plot(ts_s, xlab="yyyymm", ylab="price")  
+    autoplot(xts_s, xlab="yyyymm", ylab="price")  
+    * 単位根検定  
+    summary(ur.kpss(log(xts_s))): KPSS検定  
+    ndiffs(log(xts_s)): 定常過程とするために必要な差分の回数  
+
+## 七章　RによるARIMAモデル  
+
+
+
+
+    

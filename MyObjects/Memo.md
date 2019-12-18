@@ -104,9 +104,15 @@ AIC: -2 × 最大化対数尤度 + パラメータの数
   * 使用例  
     * データ整形  
     diff(ts_s, lag=1): 差分系列の作成  
-    * 時系列データのプロット
+    * 時系列データのプロット  
     ggtsdisplay(ts_s): プロットと併せ、コレログラムも表示  
-    
+    ggsubseriesplot(ts_s2): サイクル毎のプロット  
+    * コレログラム  
+    acf(ts_log_d): 自己相関  
+    pacf(ts_log_d): 偏自己相関  
+    * ARIMAモデルの推定  
+    Arima(y=ts_s, order=c(1, 1, 1), seasonal=list(order=c(1, 0, 0)), xreg=ts_s2)  
+    auto.arima(y=ts_s, xreg=ts_s2, ic="aic", max.order=7, stepwise=F, approximation=F, parallel=T)  
 
 
 

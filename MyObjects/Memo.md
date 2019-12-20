@@ -113,7 +113,7 @@ AIC: -2 × 最大化対数尤度 + パラメータの数
     * ARIMAモデルの推定  
     Arima(y=ts_s, order=c(1, 1, 1), seasonal=list(order=c(1, 0, 0)), xreg=ts_s2)  
     sarimax_s <- auto.arima(y=ts_s, xreg=ts_s2, ic="aic", max.order=7  
-    　　　　　　　　　　　　　, stepwise=F, approximation=F, parallel=T, num.cores=4)  
+    　　　　　　　　　　　　, stepwise=F, approximation=F, parallel=T, num.cores=4)  
     ⇒ 定常性と反転可能性のチェックは自動で行われる  
     checkresiduals(sarimax_s): 残差の自己相関の検定  
     jarque.bera.test(resid(sarimax_s)): 残差の正規性の検定  

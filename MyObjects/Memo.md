@@ -93,13 +93,17 @@ AIC: -2 × 最大化対数尤度 + パラメータの数
     　　　　　)  
     xts_s["2018-01-15::2018-01-20"]
     * 時系列データのプロット  
-    plot(ts_s, xlab="yyyymm", ylab="price")  
-    autoplot(xts_s, xlab="yyyymm", ylab="price")  
+    plot(ts_s, xlab="yyyymm", ylab="price"): デフォルトのプロット  
+    autoplot(xts_s, xlab="yyyymm", ylab="price"): 予測モデルのプロットに便利  
     * 単位根検定  
     summary(ur.kpss(log(xts_s))): KPSS検定  
     ndiffs(log(xts_s)): 定常過程とするために必要な差分の回数  
 
 ## 七章　RによるARIMAモデル  
+非定常過程の対応  
+ARFIMA（自己回帰実数和分移動平均モデル）: 差分の階数を実数で指定し過剰差分を回避する  
+状態空間モデル  
+
 * R Tips  
   * 使用例  
     * データ整形  
@@ -108,17 +112,25 @@ AIC: -2 × 最大化対数尤度 + パラメータの数
     ggtsdisplay(ts_s): プロットと併せ、コレログラムも表示  
     ggsubseriesplot(ts_s2): サイクル毎のプロット  
     * コレログラム  
-    acf(ts_log_d): 自己相関  
-    pacf(ts_log_d): 偏自己相関  
+    acf(ts_s): 自己相関  
+    pacf(ts_s): 偏自己相関  
     * ARIMAモデルの推定  
-    Arima(y=ts_s, order=c(1, 1, 1), seasonal=list(order=c(1, 0, 0)), xreg=ts_s2)  
-    sarimax_s <- auto.arima(y=ts_s, xreg=ts_s2, ic="aic", max.order=7  
+    Arima(y=ts_s_train, order=c(1, 1, 1), seasonal=list(order=c(1, 0, 0)), xreg=ts_s2_train)  
+    sarimax_m <- auto.arima(y=ts_s_train, xreg=ts_s2_train, ic="aic", max.order=7  
     　　　　　　　　　　　　, stepwise=F, approximation=F, parallel=T, num.cores=4)  
     ⇒ 定常性と反転可能性のチェックは自動で行われる  
-    checkresiduals(sarimax_s): 残差の自己相関の検定  
-    jarque.bera.test(resid(sarimax_s)): 残差の正規性の検定  
+    checkresiduals(sarimax_m): 残差の自己相関の検定  
+    jarque.bera.test(resid(sarimax_m)): 残差の正規性の検定  
+    * 予測の作成  
+    forecast(sarimax_m, xreg=ts_s2_test, h=12, level=c(95, 70)): モデル予測  
+    meanf(ts_s_train, h=12): 過去平均値  
+    rwf(ts_s_train, h=12): 前期値  
+    * 予測の評価  
+    accuracy(sarimax_f, ts_s_test)  
     
-    
+* 用語  
+過剰差分: 差分を取りすぎると必要なデータが損なわれる  
+
     
 
 

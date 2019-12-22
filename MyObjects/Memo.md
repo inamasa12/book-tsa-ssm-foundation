@@ -83,53 +83,63 @@ AIC: -2 × 最大化対数尤度 + パラメータの数
   urca: 検定  
   ggplot2: 時系列プロット  
   ggfortify: 時系列プロット  
-  * 使用例  
-    * 時系列データの作成、抽出  
-    ts_s <- ts(rnorm(12, mean=0.03, sd=0.05), start=c(2018, 1), freq=12)  
-    window(ts_s, start=c(2018, 4), end=c(2018,6))  
-    subset(ts_s, month=3)  
-    xts_s <- xts(matrix(rnorm(31, mean=0.005, sd=0.01)),  
-    　　　　　order.by=seq(as.Date("2018-01-01"),length=31,by="day")  
-    　　　　　)  
-    xts_s["2018-01-15::2018-01-20"]
-    * 時系列データのプロット  
-    plot(ts_s, xlab="yyyymm", ylab="price"): デフォルトのプロット  
-    autoplot(xts_s, xlab="yyyymm", ylab="price"): 予測モデルのプロットに便利  
-    * 単位根検定  
-    summary(ur.kpss(log(xts_s))): KPSS検定  
-    ndiffs(log(xts_s)): 定常過程とするために必要な差分の回数  
+  * 時系列データの作成、抽出  
+  ts_s <- ts(rnorm(12, mean=0.03, sd=0.05), start=c(2018, 1), freq=12)  
+  window(ts_s, start=c(2018, 4), end=c(2018,6))  
+  subset(ts_s, month=3)  
+  xts_s <- xts(matrix(rnorm(31, mean=0.005, sd=0.01)),  
+  　　　　　order.by=seq(as.Date("2018-01-01"),length=31,by="day")  
+  　　　　　)  
+  xts_s["2018-01-15::2018-01-20"]
+  * 時系列データのプロット  
+  plot(ts_s, xlab="yyyymm", ylab="price"): デフォルトのプロット  
+  autoplot(xts_s, xlab="yyyymm", ylab="price"): 予測モデルのプロットに便利  
+  * 単位根検定  
+  ur.kpss(log(xts_s)): KPSS検定  
+  ndiffs(log(xts_s)): 定常過程とするために必要な差分の回数  
 
 ## 七章　RによるARIMAモデル  
-非定常過程の対応  
+非定常過程の対応としては以下がある  
 ARFIMA（自己回帰実数和分移動平均モデル）: 差分の階数を実数で指定し過剰差分を回避する  
 状態空間モデル  
 
 * R Tips  
-  * 使用例  
-    * データ整形  
-    diff(ts_s, lag=1): 差分系列の作成  
-    * 時系列データのプロット  
-    ggtsdisplay(ts_s): プロットと併せ、コレログラムも表示  
-    ggsubseriesplot(ts_s2): サイクル毎のプロット  
-    * コレログラム  
-    acf(ts_s): 自己相関  
-    pacf(ts_s): 偏自己相関  
-    * ARIMAモデルの推定  
-    Arima(y=ts_s_train, order=c(1, 1, 1), seasonal=list(order=c(1, 0, 0)), xreg=ts_s2_train)  
-    sarimax_m <- auto.arima(y=ts_s_train, xreg=ts_s2_train, ic="aic", max.order=7  
-    　　　　　　　　　　　　, stepwise=F, approximation=F, parallel=T, num.cores=4)  
-    ⇒ 定常性と反転可能性のチェックは自動で行われる  
-    checkresiduals(sarimax_m): 残差の自己相関の検定  
-    jarque.bera.test(resid(sarimax_m)): 残差の正規性の検定  
-    * 予測の作成  
-    forecast(sarimax_m, xreg=ts_s2_test, h=12, level=c(95, 70)): モデル予測  
-    meanf(ts_s_train, h=12): 過去平均値  
-    rwf(ts_s_train, h=12): 前期値  
-    * 予測の評価  
-    accuracy(sarimax_f, ts_s_test)  
-    
+  * データ整形  
+  diff(ts_s, lag=1): 差分系列の作成  
+  * 時系列データのプロット  
+  ggtsdisplay(ts_s): プロットと併せ、コレログラムも表示  
+  ggsubseriesplot(ts_s2): サイクル毎のプロット  
+  * コレログラム  
+  acf(ts_s): 自己相関  
+  pacf(ts_s): 偏自己相関  
+  * ARIMAモデルの推定  
+  Arima(y=ts_s_train, order=c(1, 1, 1), seasonal=list(order=c(1, 0, 0)), xreg=ts_s2_train)  
+  sarimax_m <- auto.arima(y=ts_s_train, xreg=ts_s2_train, ic="aic", max.order=7  
+  　　　　　　　　　　　　, stepwise=F, approximation=F, parallel=T, num.cores=4)  
+  ⇒ 定常性と反転可能性のチェックは自動で行われる  
+  checkresiduals(sarimax_m): 残差の自己相関の検定  
+  jarque.bera.test(resid(sarimax_m)): 残差の正規性の検定  
+  * 予測の作成  
+  forecast(sarimax_m, xreg=ts_s2_test, h=12, level=c(95, 70)): モデル予測  
+  meanf(ts_s_train, h=12): 過去平均値  
+  rwf(ts_s_train, h=12): 前期値  
+  * 予測の評価  
+  accuracy(sarimax_f, ts_s_test)  
+  
 * 用語  
 過剰差分: 差分を取りすぎると必要なデータが損なわれる  
+
+# 第三部　時系列分析のその他のトピック  
+
+## 一章 見せかけの回帰とその対策  
+単位根過程やAR過程に従うデータに回帰分析を行うと見せかけの相関が生じる  
+残差に自己相関があることが背景にあり、この場合、最小二乗推定量の有効性が失われる等、下記の問題が生じる  
+1. 係数の分散を過少推定する  
+1. 決定係数が過大になる  
+1. 係数のt検定ができない  
+残差の自己相関の有無はDurbin-Watson検定で行う
+
+* R Tips  
 
     
 

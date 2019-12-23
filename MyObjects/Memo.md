@@ -146,13 +146,15 @@ ARFIMA（自己回帰実数和分移動平均モデル）: 差分の階数を実
 * R Tips  
   * 時系列分析パッケージ  
   lmtest: 線形モデルの検定  
+  prais: GLS  
   * 時系列データの作成、抽出  
   arima.sim(n=20, model=list(order=c(1,0,0), ar=c(0.8))): ARIMA過程の生成  
   * DW検定
   dwtest(sarimax_m)  
   * 単位根検定  
-  ur.df(ts_s, type="none"): ADF検定  
-  
+  ur.df(y_rw, type="none"): ADF検定  
+  * Prais-Winsten法によるGLS  
+  prais_winsten(y_ar ~ x_ar, data=d, iter=1)
 
 
 

@@ -163,7 +163,13 @@ d次和分過程: d階差分をとると定常になる過程
   * 共和分検定  
   ca.po(data_mat, demean="none")  
   
+## 第二章 VARモデル  
 
+* R Tips  
+  * 時系列分析パッケージ  
+  fpp: 時系列予測  
+  vars: VARモデル  
+  
 
 
 

@@ -93,7 +93,7 @@ AIC: -2 × 最大化対数尤度 + パラメータの数
   xts_s["2018-01-15::2018-01-20"]
   * 時系列データのプロット  
   plot(ts_s, xlab="yyyymm", ylab="price"): デフォルトのプロット  
-  autoplot(xts_s, xlab="yyyymm", ylab="price"): 予測モデルのプロットに便利  
+  autoplot(xts_s, xlab="yyyymm", ylab="price", facets=T): 予測モデルのプロットに便利  
   * 単位根検定  
   ur.kpss(log(xts_s)): KPSS検定  
   ndiffs(log(xts_s)): 定常過程とするために必要な差分の回数  
@@ -164,11 +164,23 @@ d次和分過程: d階差分をとると定常になる過程
   ca.po(data_mat, demean="none")  
   
 ## 第二章 VARモデル  
+VARモデルでは、残差の自己相関が無いことが想定されているが、異なる変数の残差間の相関は許容されている  
+Granger因果性検定は、変数を加えることで予測残差が有意に減少するかどうかを検定する  
+Granger因果性検定の瞬時因果性では同時点の関連を検定している  
+インパルス応答関数は、通常直行化インパルス応答関数を指す  
 
 * R Tips  
   * 時系列分析パッケージ  
   fpp: 時系列予測  
   vars: VARモデル  
+  * VAR関連  
+  ccf(x, y): 相互相関（各ラグの相関）  
+  VARselect(data_mat, lag.max=10, type="const"): VARのラグ選択  
+  var_model <- VAR(y=data_mat, type="const", p=2): VARの推定  
+  predict(var_model, n.ahead=4): 推定モデルによる予測  
+  causality(var_model, cause="A"): Granger因果性検定  
+  irf(var_model, impulse="A", response=c("A", "B"), n.ahead=12): インパルス応答関数  
+  fevd(var_model, n.ahead=12): 各変数の分散分解（各変数の変動寄与度を算出）
   
 
 

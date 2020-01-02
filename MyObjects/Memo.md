@@ -185,12 +185,19 @@ Granger因果性検定の瞬時因果性では同時点の関連を検定して�
 ## 第三章 ARCH・GARCHモデルとその周辺  
 時間によって分散が変動するデータを表現するモデル  
 1. 自己回帰条件付き分散不均一モデル（ARCH）  
-　<img src="https://latex.codecogs.com/gif.latex?y_{t}=\mu_{t}&plus;u_{t}"> 
+　<img src="https://latex.codecogs.com/gif.latex?y_{t}=\mu_{t}&plus;u_{t}">  
 　<img src="https://latex.codecogs.com/gif.latex?u_{t}=\sqrt{h_{t}}\varepsilon_{t}">  
 　<img src="https://latex.codecogs.com/gif.latex?h_{t}=\omega&plus;\sum_{k=1}^{m}\alpha_{k}u_{t-k}^{2}">  
 1. 一般化ARCHモデル（GARCH）  
 過去の条件付き分散を説明変数に加えることで、少ない変数でノイズの時系列変動を考慮する  
 　<img src="https://latex.codecogs.com/gif.latex?h_{t}=\omega&plus;\sum_{k=1}^{m}\alpha_{k}u_{t-k}^{2}&plus;\sum_{l=1}^{r}\beta_{l}h_{t-l}">  
+
+* R Tips  
+  * パッケージ  
+  gridExtra: 図表操作拡張  
+  fGarch: GARCHモデル  
+  rugarch: GRACH拡張  
+
 
 
 

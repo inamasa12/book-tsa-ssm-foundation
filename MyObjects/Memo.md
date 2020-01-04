@@ -204,8 +204,8 @@ Granger因果性検定の瞬時因果性では同時点の関連を検定して�
   garchFit(formula=~garch(1, 1), data=data_ts, include.mean=T, trace=F)  
   * 推定（rugarch）  
   garch_spec <- ugarchspec(variance.model=list(model="sGARCH", garchOrder=c(1, 1)),  
-  　　　　　　　　　　　mean.model=list(armaOrder=c(0, 0), include.mean=T),  
-  　　　　　　　　　　　distribution.model="norm")  
+  　　　　　　　　　　　　mean.model=list(armaOrder=c(0, 0), include.mean=T),  
+  　　　　　　　　　　　　distribution.model="norm")  
   ugarchfit(spec=garch_spec, data=data_ts, solver="hybrid")  
   
   

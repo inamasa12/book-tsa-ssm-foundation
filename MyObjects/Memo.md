@@ -117,7 +117,7 @@ ARFIMA（自己回帰実数和分移動平均モデル）: 差分の階数を実
   sarimax_m <- auto.arima(y=ts_s_train, xreg=ts_s2_train, ic="aic", max.order=7  
   　　　　　　　　　　　　, stepwise=F, approximation=F, parallel=T, num.cores=4)  
   ⇒ 定常性と反転可能性のチェックは自動で行われる  
-  checkresiduals(sarimax_m): 残差の自己相関の検定  
+  checkresiduals(sarimax_m): 残差の自己相関の検定: インプットはArimaオブジェクト  
   jarque.bera.test(resid(sarimax_m)): 残差の正規性の検定  
   * 予測の作成  
   forecast(sarimax_m, xreg=ts_s2_test, h=12, level=c(95, 70)): モデル予測  
@@ -155,7 +155,7 @@ d次和分過程: d階差分をとると定常になる過程
   * 時系列データの作成、抽出  
   arima.sim(n=20, model=list(order=c(1,0,0), ar=c(0.8))): ARIMA過程の生成  
   * DW検定
-  dwtest(sarimax_m)  
+  dwtest(sarimax_m): インプットはlmオブジェクト  
   * 単位根検定  
   ur.df(y_rw, type="none"): ADF検定（帰無仮説は「単位根を持つ」）  
   * Prais-Winsten法によるGLS  
@@ -203,11 +203,12 @@ Granger因果性検定の瞬時因果性では同時点の関連を検定して�
   * 推定（fGarch）  
   garchFit(formula=~garch(1, 1), data=data_ts, include.mean=T, trace=F)  
   * 推定（rugarch）  
+  モデルの同定と推定を別に行う  
   garch_spec <- ugarchspec(variance.model=list(model="sGARCH", garchOrder=c(1, 1)),  
   　　　　　　　　　　　　mean.model=list(armaOrder=c(0, 0), include.mean=T),  
   　　　　　　　　　　　　distribution.model="norm")  
   ugarchfit(spec=garch_spec, data=data_ts, solver="hybrid")  
-  
+  * 
   
 
 

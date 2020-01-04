@@ -198,14 +198,21 @@ Granger因果性検定の瞬時因果性では同時点の関連を検定して�
   fGarch: GARCHモデル  
   rugarch: GRACH拡張  
   * GARCHモデルに従う時系列データの生成  
-  garch_model <- garchSpec(model=list(omega=0.001, alpha=0.4, beta=0.5, mu=0.1),  
-  　　　　　cond.dist="norm"): パラメータの設定  
+  garch_model <- garchSpec(model=list(omega=0.001, alpha=0.4, beta=0.5, mu=0.1), cond.dist="norm"): パラメータの設定  
   garchSim(garch_model, n=1000, extended=T): データ生成  
+  * 推定（fGarch）  
+  garchFit(formula=~garch(1, 1), data=data_ts, include.mean=T, trace=F)  
+  * 推定（rugarch）  
+  garch_spec <- ugarchspec(variance.model=list(model="sGARCH", garchOrder=c(1, 1)),  
+  　　　　　　　　mean.model=list(armaOrder=c(0, 0), include.mean=T),  
+  　　　　　　　　distribution.model="norm")  
+  ugarchfit(spec=garch_spec, data=data_ts, solver="hybrid")  
+  
   
 
 
 
-
+  
 
 
     

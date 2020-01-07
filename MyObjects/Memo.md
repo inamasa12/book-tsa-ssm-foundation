@@ -207,11 +207,20 @@ Granger因果性検定の瞬時因果性では同時点の関連を検定して�
   garch_spec <- ugarchspec(variance.model=list(model="sGARCH", garchOrder=c(1, 1)),  
   　　　　　　　　　　　　mean.model=list(armaOrder=c(0, 0), include.mean=T),  
   　　　　　　　　　　　　distribution.model="norm")  
-  ugarchfit(spec=garch_spec, data=data_ts, solver="hybrid")  
-  * 
-  
+  garch_model <- ugarchfit(spec=garch_spec, data=data_ts, solver="hybrid")  
+  * GJRモデルの推定  
+  gjr_spec <- ugarchspec(variance.model=list(model="sGARCH", garchOrder=c(1, 1)),
+                            mean.model=list(armaOrder=c(1, 1)),
+                            distribution.model="std")
+  gjr_model <- ugarchfit(spec=gjr_spec, data=data_ts, solver="hybrid") 
+  * その他  
+  infocriteria(gjr_model)["Akaike",]: AIC  
+  sigma(gjr_model): 推定ボラティリティ（標準偏差）  
+  coef(garch_model): 推定した係数  
 
+# 第四部　状態空間モデルとは何か  
 
+## 第一章 状態空間モデルとは何か  
 
   
 

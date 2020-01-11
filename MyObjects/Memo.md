@@ -240,7 +240,13 @@ Granger因果性検定の瞬時因果性では同時点の関連を検定して�
 
 ## 第一章 線形ガウス状態空間モデルとカルマンフィルタ  
 1. 状態方程式、観測方程式の定式化
-<img src="https://latex.codecogs.com/gif.latex?x_{t}=T_{t}x_{t-1}&space;&plus;&space;R_{t}\xi_{t},\;&space;\;&space;\;&space;\;&space;\;&space;\xi_{t}\sim&space;N(0,Q_{t})">  
-<img src="https://latex.codecogs.com/gif.latex?y_{t}=Z_{t}x_{t}&space;&plus;&space;\varepsilon_{t},\;&space;\;&space;\;&space;\;&space;\;&space;\varepsilon_{t}\sim&space;N(0,H_{t})">  
+　<img src="https://latex.codecogs.com/gif.latex?x_{t}=T_{t}x_{t-1}&space;&plus;&space;R_{t}\xi_{t},\;&space;\;&space;\;&space;\;&space;\;&space;\xi_{t}\sim&space;N(0,Q_{t})">  
+　<img src="https://latex.codecogs.com/gif.latex?y_{t}=Z_{t}x_{t}&space;&plus;&space;\varepsilon_{t},\;&space;\;&space;\;&space;\;&space;\;&space;\varepsilon_{t}\sim&space;N(0,H_{t})">  
+1. フィルタリング  
+状態の予測と観測値による補正を繰り返す  
+1. 平滑化  
+状態の予測値をスムージング  
+1. パラメータ推定  
+過程誤差と観測誤差の大きさを最尤法で推定  
 
     

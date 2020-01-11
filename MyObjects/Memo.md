@@ -226,7 +226,7 @@ Granger因果性検定の瞬時因果性では同時点の関連を検定して�
 ## 第二章 状態空間モデルの学び方  
 下記データ表現と、パラメータ推定の2つのプロセスから成る  
 状態 = 前時点の状態を用いた予測値 + 予測誤差  
-観測値 = 状態 + 観測誤差  
+観測値 = 状態 + 過程誤差  
 * フィルタリング系（カルマンフィルタ等）  
 状態の推定とパラメータの推定を別々に行える  
 比較的容易  
@@ -239,6 +239,8 @@ Granger因果性検定の瞬時因果性では同時点の関連を検定して�
 # 第五部　状態空間モデルカルマンフィルタ  
 
 ## 第一章 線形ガウス状態空間モデルとカルマンフィルタ  
-1. 
+1. 状態方程式、観測方程式の定式化
+<img src="https://latex.codecogs.com/gif.latex?x_{t}=T_{t}x_{t-1}&space;&plus;&space;R_{t}\xi_{t},\;&space;\;&space;\;&space;\;&space;\;&space;\xi_{t}\sim&space;N(0,Q_{t})">  
+<img src="https://latex.codecogs.com/gif.latex?y_{t}=Z_{t}x_{t}&space;&plus;&space;\varepsilon_{t},\;&space;\;&space;\;&space;\;&space;\;&space;\varepsilon_{t}\sim&space;N(0,H_{t})">  
 
     

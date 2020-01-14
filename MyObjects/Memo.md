@@ -239,7 +239,7 @@ Granger因果性検定の瞬時因果性では同時点の関連を検定して�
 # 第五部　状態空間モデルカルマンフィルタ  
 
 ## 第一章 線形ガウス状態空間モデルとカルマンフィルタ  
-1. 状態方程式、観測方程式の定式化
+1. 状態方程式、観測方程式の定式化  
 　<img src="https://latex.codecogs.com/gif.latex?x_{t}=T_{t}x_{t-1}&space;&plus;&space;R_{t}\xi_{t},\;&space;\;&space;\;&space;\;&space;\;&space;\xi_{t}\sim&space;N(0,Q_{t})">  
 　<img src="https://latex.codecogs.com/gif.latex?y_{t}=Z_{t}x_{t}&space;&plus;&space;\varepsilon_{t},\;&space;\;&space;\;&space;\;&space;\;&space;\varepsilon_{t}\sim&space;N(0,H_{t})">  
 1. フィルタリング  
@@ -250,6 +250,9 @@ Granger因果性検定の瞬時因果性では同時点の関連を検定して�
 過程誤差と観測誤差の大きさを最尤法で推定  
 
 ## 第二章 状態方程式、観測方程式による表現技法  
-
+1. ローカルレベルモデル  
+ランダムウォークに観測ノイズが加わった系列と言える  
+<img src="https://latex.codecogs.com/gif.latex?\mu_{t}=\mu_{t-1}&plus;w_{t},&space;\;&space;w_{t}\sim&space;N\left(0,&space;\sigma_{w}^{2}&space;\right)">  
+<img src="https://latex.codecogs.com/gif.latex?y_{t}=\mu_{t}&plus;v_{t},&space;\;&space;v_{t}\sim&space;N\left(0,&space;\sigma_{v}^{2}&space;\right)">  
 
     

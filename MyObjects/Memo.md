@@ -252,8 +252,8 @@ Granger因果性検定の瞬時因果性では同時点の関連を検定して�
 ## 第二章 状態方程式、観測方程式による表現技法  
 1. ローカルレベルモデル  
 ランダムウォークに観測ノイズが加わった系列と言える  
-<img src="https://latex.codecogs.com/gif.latex?\mu_{t}=\mu_{t-1}&plus;w_{t},&space;\;&space;w_{t}\sim&space;N\left(0,&space;\sigma_{w}^{2}&space;\right)">  
-<img src="https://latex.codecogs.com/gif.latex?y_{t}=\mu_{t}&plus;v_{t},&space;\;&space;v_{t}\sim&space;N\left(0,&space;\sigma_{v}^{2}&space;\right)">  
+　<img src="https://latex.codecogs.com/gif.latex?\mu_{t}=\mu_{t-1}&plus;w_{t},&space;\;&space;w_{t}\sim&space;N\left(0,&space;\sigma_{w}^{2}&space;\right)">  
+　<img src="https://latex.codecogs.com/gif.latex?y_{t}=\mu_{t}&plus;v_{t},&space;\;&space;v_{t}\sim&space;N\left(0,&space;\sigma_{v}^{2}&space;\right)">  
 1. ローカル線形トレンドモデル  
 δがトレンドを表す  
 　<img src="https://latex.codecogs.com/gif.latex?\delta_{t}=\delta_{t-1}&plus;\zeta_{t},\;&space;\zeta_{t}\sim&space;N(0,&space;\sigma_{\zeta}^{2})">  
@@ -263,6 +263,7 @@ Granger因果性検定の瞬時因果性では同時点の関連を検定して�
 トレンド、周期的変動、ホワイトノイズで構成される  
 　<img src="https://latex.codecogs.com/gif.latex?y_{t}=\mu_{t}&plus;\gamma_{t}&plus;v_{t},\;&space;v_{t}\sim&space;N(0,&space;\sigma_{v}^{2})">  
 1. 外生変数と時変係数モデル  
+外生変数ψの係数βが変動するケース  
 　<img src="https://latex.codecogs.com/gif.latex?\beta_{t}=\beta_{t-1}&plus;\tau_{t},\;&space;\tau_{t}\sim&space;N(0,&space;\sigma_{\tau}^{2})">  
 　<img src="https://latex.codecogs.com/gif.latex?\mu_{t}=\mu_{t-1}&plus;w_{t},\;&space;w_{t}\sim&space;N(0,&space;\sigma_{w}^{2})">  
 　<img src="https://latex.codecogs.com/gif.latex?y_{t}=\mu_{t}&plus;\beta_{t}\psi_{t}&plus;v_{t},\;&space;v_{t}\sim&space;N(0,&space;\sigma_{v}^{2})">  

@@ -267,6 +267,22 @@ Granger因果性検定の瞬時因果性では同時点の関連を検定して�
 　<img src="https://latex.codecogs.com/gif.latex?\beta_{t}=\beta_{t-1}&plus;\tau_{t},\;&space;\tau_{t}\sim&space;N(0,&space;\sigma_{\tau}^{2})">  
 　<img src="https://latex.codecogs.com/gif.latex?\mu_{t}=\mu_{t-1}&plus;w_{t},\;&space;w_{t}\sim&space;N(0,&space;\sigma_{w}^{2})">  
 　<img src="https://latex.codecogs.com/gif.latex?y_{t}=\mu_{t}&plus;\beta_{t}\psi_{t}&plus;v_{t},\;&space;v_{t}\sim&space;N(0,&space;\sigma_{v}^{2})">  
+1. ローカルモデルのカルマンフィルタ  
+t-1時点の状態のフィルタ化推定量が、t時点の状態の予測値となる  
+<img src="https://latex.codecogs.com/gif.latex?\mu_{t}=\mu_{t-1|t-1}">  
+<img src="https://latex.codecogs.com/gif.latex?\hat{y_{t}}=\mu_{t}">  
+t-1時点の状態のフィルタ化推定量の誤差分散と過程誤差の分散の合計が、t時点の状態の予測誤差の分散  
+<img src="https://latex.codecogs.com/gif.latex?P_{t}=P_{t-1|t-1}&plus;\sigma_{w}^{2}">  
+t時点の状態の予測誤差の分散に観測誤差の分散を加えると、t時点の観測値の予測誤差の分散  
+<img src="https://latex.codecogs.com/gif.latex?F_{t}=P_{t}&plus;\sigma_{v}^{2}">  
+カルマンゲインは状態の予測誤差の分散を観測値の予測誤差の分散で割ったもの  
+
+フィルタ化推定量  
+
+フィルタ化推定量の誤差分散  
+
+
+
 
 ## 第三章 状態推定、カルマンフィルタ  
 

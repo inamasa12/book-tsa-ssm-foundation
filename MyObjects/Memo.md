@@ -279,9 +279,9 @@ t時点の状態の予測誤差の分散に観測誤差の分散を加えると�
 カルマンゲインは状態の予測誤差の分散を観測値の予測誤差の分散で割ったもの  
 　<img src="https://latex.codecogs.com/gif.latex?K_{t}=\frac{P_{t}}{F_{t}}">  
 t時点のフィルタ化推定量  
-　<img src="https://latex.codecogs.com/gif.latex?\mu_{t|t}=\mu_{t}&plus;K_{t}y_{resid,t}">  
+　<img src="https://latex.codecogs.com/gif.latex?\mu_{t|t}=\mu_{t}&plus;K_{t}\cdot&space;y_{resid,t}">  
 t時点のフィルタ化推定量の誤差分散  
-
+<img src="https://latex.codecogs.com/gif.latex?P_{t|t}=(1-K_{t})P_{t}">  
 
 
 

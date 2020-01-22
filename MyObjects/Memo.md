@@ -295,8 +295,21 @@ t時点のフィルタ化推定量の誤差分散
 過程誤差に比べて観測誤差が小さいと、初期値が修正されない  
 
 ## 第五章 状態推定、平滑化  
-前時点のフィルタ化推定量を現時点の予測残差で修正していく  
+予測誤差が得られるたびに、過去のフィルタ化推定量、及びフィルタ化推定量の誤差分散を修正していく    
 ⇒ 前時点のフィルタ化推定量 + 前時点のフィルタ化推定量の誤差分散 / 現時点の観測値の予測誤差の分散 × 現時点の予測残差  
+フィルタ化推定量の平滑化  
+<img src="https://latex.codecogs.com/gif.latex?r_{t-1}=\frac{y_{resid,t}}{F_{t}}&plus;(1-K_{t})r_{t}">  
+<img src="https://latex.codecogs.com/gif.latex?\hat{\mu}_{T-1}=\mu_{T-1|T-1}&plus;\frac{P_{T-1|T-1}}{F_{T}}y_{resid,T}">  
+フィルタ化推定量の誤差分散の平滑化  
+<img src="https://latex.codecogs.com/gif.latex?s_{t-1}=\frac{1}{F_{t}}&plus;(1-K_{t})^{2}s_{t}">  
+<img src="https://latex.codecogs.com/gif.latex?\hat{P}_{t}=P_{t|t}-P_{t|t}^{2}s_{t}">  
+
+## 第六章 パラメタ推定、最尤法  
+
+
+
+
+
 
 
 

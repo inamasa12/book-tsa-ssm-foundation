@@ -240,7 +240,9 @@ Granger因果性検定の瞬時因果性では同時点の関連を検定して�
 
 ## 第一章 線形ガウス状態空間モデルとカルマンフィルタ  
 1. 状態方程式、観測方程式の定式化  
+各状態はそれぞれの一期前の値と誤差項の線形結合で表される  
 　<img src="https://latex.codecogs.com/gif.latex?x_{t}=T_{t}x_{t-1}&space;&plus;&space;R_{t}\xi_{t},\;&space;\;&space;\;&space;\;&space;\;&space;\xi_{t}\sim&space;N(0,Q_{t})">  
+各観測値は同時点の各状態の線形結合と誤差項で表される  
 　<img src="https://latex.codecogs.com/gif.latex?y_{t}=Z_{t}x_{t}&space;&plus;&space;\varepsilon_{t},\;&space;\;&space;\;&space;\;&space;\;&space;\varepsilon_{t}\sim&space;N(0,H_{t})">  
 1. フィルタリング  
 状態の予測と観測値による補正を繰り返す  
@@ -311,6 +313,12 @@ t時点のフィルタ化推定量の誤差分散
 
 ## 第七章 実装、Rによる状態空間モデル  
 カルマンフィルタの実装  
+1. 適当なパラメータ、初期値を設定  
+1. モデルに従いデータ期間のフィルタ化推定量、予測残差を算出  
+1. 予測残差が正規分布に従うことを前提に、最尤法からパラメータを推定  
+1. 新しいパラメータで再度データ期間のフィルタ化推定量を算出  
+1. フィルタ化推定量をスムージング  
+* R Tips  
 
 
 

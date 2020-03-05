@@ -325,10 +325,16 @@ t時点のフィルタ化推定量の誤差分散
   1. フィルタリング: dlmFilter(データ, パラメータを再設定したモデル)  
   1. スムージング: dlmSmooth(フィルタリング結果)  
   * KFAS  
-  1. モデル設定（ローカルモデル）: SSModel(H=観測誤差, データ~SSMtrend(degree=1, Q=過程誤差)  
+  1. ローカルモデル: SSModel(H=観測誤差, データ~SSMtrend(degree=1, Q=過程誤差))  
+  1. ローカル線形トレンドモデル: SSModel(H=観測誤差, データ~SSMtrend(degree=2, Q=c(レベル、トレンドの過程誤差))  
+  1. 時変係数モデル: SSModel(H=観測誤差, データ~SSMtrend(degree=1, Q=過程誤差) + SSMregression(~変数, Q=過程誤差))  
+  1. 基本構造時系列モデル: SSModel(H=観測誤差, データ~SSMTrend(degree=2, Q=c(レベル、トレンドの過程誤差)) + SSMseasonal(period=7, sea.type="dummy", Q=過程誤差) + ダミー変数)
   1. パラメータ推定: fitSSM(モデル, inits=c(1, 1))  
   1. フィルタリングとスムージング: KFS(パラメータを再設定したモデル)  
   
+# 第六部　状態空間モデルとベイズ推論  
+
+## 第一章 一般化状態空間モデルとベイズ推論  
 
 
 
